@@ -1,0 +1,2007 @@
+code,bug type,bug
+"SUB BX, AX
+INC CX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, BX
+MOV CX, DX",,0
+"JMP label1
+MOV AX, BX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"CALL func
+SUB BX, AX",,0
+"JMP label1
+DEC DX",,0
+"RET
+TEST AX, AX",,0
+"MOV AX, [BX]
+ADD AX, CX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, [BX]
+SUB BX, AX",,0
+"INC CX
+CALL func",,0
+"JMP label1
+MOV AX, BX",,0
+"PUSH AX
+XOR AX, AX",,0
+"POP AX
+CALL func",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"SUB BX, AX
+ADD AX, CX",,0
+"XOR AX, AX
+PUSH AX",,0
+"CALL func
+MOV AX, BX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV DX, 0
+CMP AX, BX",,0
+"INC CX
+MOV [BX], AX",,0
+"JZ label2
+INC CX",,0
+"MOV AX, BX
+INC CX",,0
+"TEST AX, AX
+DEC DX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV CX, DX
+CMP AX, BX",,0
+"JZ label2
+POP AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"SUB BX, AX
+CALL func",,0
+"XOR AX, AX
+JZ label2",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"INC CX
+DEC DX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"POP AX
+RET",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV CX, DX
+XOR AX, AX",,0
+"RET
+INC CX",,0
+"MOV [BX], AX
+MOV AX, [BX]",,0
+"MOV [BX], AX
+TEST AX, AX",,0
+"POP AX
+PUSH AX",,0
+"JZ label2
+CMP AX, BX",,0
+"MOV DX, 0
+MOV AX, [BX]",,0
+"MOV [AX], BX",Memory Error,1
+"RET
+MOV DX, 0",,0
+"MOV [AX], BX",Memory Error,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"POP AX
+JZ label2",,0
+"TEST AX, AX
+MOV CX, DX",,0
+LOOP start,Infinite Loop,1
+"MOV [AX], BX",Memory Error,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"POP AX
+DEC DX",,0
+"MOV CX, DX
+MOV AX, BX",,0
+"MOV [AX], BX",Memory Error,1
+"MOV CX, DX
+MOV AX, [BX]",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"SUB BX, AX
+TEST AX, AX",,0
+"PUSH AX
+MOV DX, 0",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"JMP label1
+ADD AX, CX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV AX, BX
+CALL func",,0
+"ADD AX, CX
+TEST AX, AX",,0
+"JZ label2
+CALL func",,0
+"TEST AX, AX
+MOV CX, DX",,0
+"MOV CX, DX
+CALL func",,0
+"TEST AX, AX
+JZ label2",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"ADD AX, CX
+MOV [BX], AX",,0
+"XOR AX, AX
+MOV AX, BX",,0
+"CMP AX, BX
+PUSH AX",,0
+"TEST AX, AX
+JMP label1",,0
+"MOV AX, BX
+INC CX",,0
+LOOP start,Infinite Loop,1
+"CALL func
+MOV CX, DX",,0
+"MOV CX, DX
+ADD AX, CX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV [BX], AX
+JZ label2",,0
+"PUSH AX
+XOR AX, AX",,0
+"MOV AX, [BX]
+SUB BX, AX",,0
+LOOP start,Infinite Loop,1
+"POP AX
+XOR AX, AX",,0
+"ADD AX, CX
+CALL func",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CMP AX, BX
+POP AX",,0
+"CMP AX, BX
+CALL func",,0
+"MOV DX, 0
+CALL func",,0
+"XOR AX, AX
+JMP label1",,0
+"PUSH AX
+TEST AX, AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV [AX], BX",Memory Error,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"CMP AX, BX
+MOV CX, DX",,0
+"MOV DX, 0
+JMP label1",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"ADD AX, CX
+CALL func",,0
+LOOP start,Infinite Loop,1
+"XOR AX, AX
+SUB BX, AX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"TEST AX, AX
+XOR AX, AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, BX
+CMP AX, BX",,0
+"JMP label1
+XOR AX, AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV AX, BX
+ADD AX, CX",,0
+"JZ label2
+PUSH AX",,0
+"TEST AX, AX
+MOV [BX], AX",,0
+"SUB BX, AX
+JMP label1",,0
+"MOV [AX], BX",Memory Error,1
+"ADD AX, CX
+MOV CX, DX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"XOR AX, AX
+POP AX",,0
+"MOV AX, [BX]
+TEST AX, AX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"PUSH AX
+JZ label2",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV [BX], AX
+JZ label2",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CMP AX, BX
+MOV AX, BX",,0
+"XOR AX, AX
+TEST AX, AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+LOOP start,Infinite Loop,1
+"XOR AX, AX
+DEC DX",,0
+"SUB BX, AX
+JMP label1",,0
+"CMP AX, BX
+PUSH AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+LOOP start,Infinite Loop,1
+"DEC DX
+JZ label2",,0
+"MOV DX, 0
+XOR AX, AX",,0
+"CMP AX, BX
+PUSH AX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV [AX], BX",Memory Error,1
+"MOV AX, BX
+XOR AX, AX",,0
+"MOV AX, [BX]
+RET",,0
+"MOV DX, 0
+XOR AX, AX",,0
+"CALL func
+JZ label2",,0
+LOOP start,Infinite Loop,1
+"RET
+JMP label1",,0
+"JZ label2
+TEST AX, AX",,0
+LOOP start,Infinite Loop,1
+"INC CX
+CALL func",,0
+"PUSH AX
+MOV [BX], AX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"RET
+XOR AX, AX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"INC CX
+MOV AX, [BX]",,0
+"POP AX
+CMP AX, BX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CALL func
+MOV [BX], AX",,0
+"ADD AX, CX
+JMP label1",,0
+"JZ label2
+JMP label1",,0
+"PUSH AX
+MOV [BX], AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH AX
+TEST AX, AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"SUB BX, AX
+MOV AX, BX",,0
+"XOR AX, AX
+MOV CX, DX",,0
+"CALL func
+MOV DX, 0",,0
+"JZ label2
+JMP label1",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+LOOP start,Infinite Loop,1
+"MOV DX, 0
+TEST AX, AX",,0
+"XOR AX, AX
+MOV DX, 0",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"POP AX
+SUB BX, AX",,0
+"TEST AX, AX
+PUSH AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV [AX], BX",Memory Error,1
+"MOV DX, 0
+RET",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"JMP label1
+ADD AX, CX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"RET
+INC CX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV CX, DX
+MOV AX, [BX]",,0
+LOOP start,Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"XOR AX, AX
+PUSH AX",,0
+"MOV AX, BX
+ADD AX, CX",,0
+"PUSH AX
+INC CX",,0
+LOOP start,Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"CMP AX, BX
+ADD AX, CX",,0
+"INC CX
+RET",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV [BX], AX
+MOV CX, DX",,0
+"DEC DX
+INC CX",,0
+"MOV [BX], AX
+TEST AX, AX",,0
+"POP AX
+MOV DX, 0",,0
+"MOV AX, BX
+MOV [BX], AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV [AX], BX",Memory Error,1
+"MOV [BX], AX
+PUSH AX",,0
+"ADD AX, CX
+MOV AX, BX",,0
+"MOV AX, BX
+MOV [BX], AX",,0
+"MOV CX, DX
+TEST AX, AX",,0
+"JZ label2
+MOV DX, 0",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV [BX], AX
+JZ label2",,0
+"XOR AX, AX
+RET",,0
+"INC CX
+XOR AX, AX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"JMP label1
+MOV DX, 0",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV [BX], AX
+CMP AX, BX",,0
+"JMP label1
+PUSH AX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"CMP AX, BX
+XOR AX, AX",,0
+"MOV AX, [BX]
+MOV AX, BX",,0
+"TEST AX, AX
+INC CX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+LOOP start,Infinite Loop,1
+LOOP start,Infinite Loop,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV [BX], AX
+DEC DX",,0
+"INC CX
+ADD AX, CX",,0
+"JMP label1
+MOV AX, BX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV [BX], AX
+CALL func",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV [BX], AX
+CALL func",,0
+"TEST AX, AX
+ADD AX, CX",,0
+"DEC DX
+JMP label1",,0
+"SUB BX, AX
+TEST AX, AX",,0
+"MOV DX, 0
+RET",,0
+"DEC DX
+MOV DX, 0",,0
+"JMP label1
+MOV AX, [BX]",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"DEC DX
+XOR AX, AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JZ label2
+CMP AX, BX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"JMP start
+start: JMP start",Infinite Loop,1
+LOOP start,Infinite Loop,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV CX, DX
+POP AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"SUB BX, AX
+INC CX",,0
+"XOR AX, AX
+JZ label2",,0
+"PUSH AX
+ADD AX, CX",,0
+"MOV DX, 0
+JZ label2",,0
+"SUB BX, AX
+XOR AX, AX",,0
+"XOR AX, AX
+RET",,0
+"TEST AX, AX
+MOV AX, [BX]",,0
+"CALL func
+SUB BX, AX",,0
+"MOV CX, DX
+DEC DX",,0
+"INC CX
+CMP AX, BX",,0
+"XOR AX, AX
+JZ label2",,0
+"MOV DX, 0
+CMP AX, BX",,0
+"MOV CX, DX
+JZ label2",,0
+LOOP start,Infinite Loop,1
+"JMP label1
+MOV CX, DX",,0
+"JZ label2
+INC CX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"INC CX
+MOV CX, DX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"XOR AX, AX
+MOV AX, BX",,0
+"MOV CX, DX
+CMP AX, BX",,0
+"RET
+DEC DX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"XOR AX, AX
+INC CX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV [BX], AX
+POP AX",,0
+"POP AX
+DEC DX",,0
+"ADD AX, CX
+XOR AX, AX",,0
+"RET
+MOV [BX], AX",,0
+LOOP start,Infinite Loop,1
+"MOV CX, DX
+MOV AX, BX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"INC CX
+JMP label1",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"JMP label1
+CMP AX, BX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV [AX], BX",Memory Error,1
+"PUSH AX
+JZ label2",,0
+LOOP start,Infinite Loop,1
+"MOV AX, [BX]
+JZ label2",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"TEST AX, AX
+CALL func",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"TEST AX, AX
+MOV CX, DX",,0
+"MOV [AX], BX",Memory Error,1
+"MOV CX, DX
+CMP AX, BX",,0
+"MOV CX, DX
+MOV [BX], AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV DX, 0
+ADD AX, CX",,0
+"SUB BX, AX
+MOV DX, 0",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"JZ label2
+ADD AX, CX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"RET
+MOV DX, 0",,0
+"POP AX
+MOV AX, [BX]",,0
+"JZ label2
+PUSH AX",,0
+"INC CX
+MOV CX, DX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"CALL func
+PUSH AX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, [BX]
+MOV DX, 0",,0
+"CMP AX, BX
+XOR AX, AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"JMP label1
+JZ label2",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"XOR AX, AX
+JZ label2",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"INC CX
+MOV DX, 0",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"RET
+MOV [BX], AX",,0
+"ADD AX, CX
+POP AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"INC CX
+MOV CX, DX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"ADD AX, CX
+MOV CX, DX",,0
+"JZ label2
+XOR AX, AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"RET
+ADD AX, CX",,0
+"MOV [BX], AX
+POP AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"ADD AX, CX
+XOR AX, AX",,0
+"MOV AX, [BX]
+DEC DX",,0
+LOOP start,Infinite Loop,1
+"INC CX
+MOV DX, 0",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"PUSH AX
+ADD AX, CX",,0
+"SUB BX, AX
+RET",,0
+LOOP start,Infinite Loop,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV CX, DX
+JMP label1",,0
+LOOP start,Infinite Loop,1
+"CALL func
+MOV DX, 0",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"SUB BX, AX
+XOR AX, AX",,0
+"TEST AX, AX
+JMP label1",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"INC CX
+MOV [BX], AX",,0
+"RET
+CALL func",,0
+"MOV [AX], BX",Memory Error,1
+"SUB BX, AX
+MOV DX, 0",,0
+"ADD AX, CX
+JMP label1",,0
+"CMP AX, BX
+TEST AX, AX",,0
+"MOV CX, DX
+MOV AX, BX",,0
+"XOR AX, AX
+INC CX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CALL func
+MOV AX, BX",,0
+"CALL func
+SUB BX, AX",,0
+"TEST AX, AX
+RET",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JMP label1
+SUB BX, AX",,0
+"MOV CX, DX
+DEC DX",,0
+"DEC DX
+MOV [BX], AX",,0
+"MOV [BX], AX
+XOR AX, AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV [AX], BX",Memory Error,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+LOOP start,Infinite Loop,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"PUSH AX
+MOV CX, DX",,0
+"RET
+CALL func",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV CX, DX
+PUSH AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CALL func
+XOR AX, AX",,0
+"MOV [AX], BX",Memory Error,1
+"ADD AX, CX
+XOR AX, AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV [AX], BX",Memory Error,1
+"RET
+JZ label2",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV DX, 0
+MOV [BX], AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV [BX], AX
+PUSH AX",,0
+LOOP start,Infinite Loop,1
+"MOV [BX], AX
+JMP label1",,0
+"MOV [AX], BX",Memory Error,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CMP AX, BX
+JZ label2",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"DEC DX
+RET",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV AX, BX
+DEC DX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+LOOP start,Infinite Loop,1
+"POP AX
+CMP AX, BX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+LOOP start,Infinite Loop,1
+"MOV CX, DX
+RET",,0
+"MOV [AX], BX",Memory Error,1
+"SUB BX, AX
+DEC DX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, [BX]
+MOV [BX], AX",,0
+"PUSH AX
+XOR AX, AX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"JZ label2
+MOV DX, 0",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"RET
+CALL func",,0
+LOOP start,Infinite Loop,1
+"DEC DX
+SUB BX, AX",,0
+"MOV AX, BX
+XOR AX, AX",,0
+"RET
+SUB BX, AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"DEC DX
+SUB BX, AX",,0
+"PUSH AX
+XOR AX, AX",,0
+"MOV [AX], BX",Memory Error,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV CX, DX
+CMP AX, BX",,0
+"POP AX
+MOV [BX], AX",,0
+"MOV DX, 0
+INC CX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV [AX], BX",Memory Error,1
+"SUB BX, AX
+MOV AX, BX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV [BX], AX
+JMP label1",,0
+"CMP AX, BX
+JZ label2",,0
+"XOR AX, AX
+MOV DX, 0",,0
+"MOV CX, DX
+MOV [BX], AX",,0
+"INC CX
+DEC DX",,0
+"MOV CX, DX
+MOV [BX], AX",,0
+"DEC DX
+MOV DX, 0",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"JZ label2
+SUB BX, AX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV DX, 0
+ADD AX, CX",,0
+"CMP AX, BX
+INC CX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV CX, DX
+INC CX",,0
+"TEST AX, AX
+JMP label1",,0
+"JMP label1
+CALL func",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV CX, DX
+CALL func",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"TEST AX, AX
+DEC DX",,0
+"MOV DX, 0
+MOV AX, BX",,0
+"MOV AX, [BX]
+ADD AX, CX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+LOOP start,Infinite Loop,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"PUSH AX
+JMP label1",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV [AX], BX",Memory Error,1
+LOOP start,Infinite Loop,1
+"POP AX
+INC CX",,0
+"CMP AX, BX
+MOV AX, [BX]",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"CMP AX, BX
+INC CX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"JMP label1
+RET",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"JMP label1
+SUB BX, AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CALL func
+POP AX",,0
+"JZ label2
+DEC DX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV AX, BX
+MOV AX, [BX]",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JZ label2
+MOV DX, 0",,0
+"DEC DX
+MOV DX, 0",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"PUSH AX
+JZ label2",,0
+LOOP start,Infinite Loop,1
+"MOV [AX], BX",Memory Error,1
+"MOV CX, DX
+CALL func",,0
+"TEST AX, AX
+POP AX",,0
+"RET
+POP AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"JMP label1
+POP AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV [AX], BX",Memory Error,1
+"ADD AX, CX
+CALL func",,0
+LOOP start,Infinite Loop,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"CALL func
+POP AX",,0
+"CMP AX, BX
+DEC DX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"XOR AX, AX
+JZ label2",,0
+"XOR AX, AX
+MOV [BX], AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, [BX]
+POP AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV DX, 0
+XOR AX, AX",,0
+"XOR AX, AX
+JZ label2",,0
+"MOV [AX], BX",Memory Error,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"INC CX
+MOV AX, [BX]",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV AX, [BX]
+CALL func",,0
+"PUSH AX
+INC CX",,0
+"SUB BX, AX
+MOV DX, 0",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"CALL func
+INC CX",,0
+LOOP start,Infinite Loop,1
+"JMP label1
+MOV [BX], AX",,0
+"XOR AX, AX
+INC CX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"INC CX
+CMP AX, BX",,0
+"JZ label2
+MOV AX, [BX]",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+LOOP start,Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"DEC DX
+MOV AX, BX",,0
+"ADD AX, CX
+POP AX",,0
+"MOV CX, DX
+TEST AX, AX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"JZ label2
+MOV [BX], AX",,0
+"CMP AX, BX
+MOV [BX], AX",,0
+"CMP AX, BX
+JZ label2",,0
+"INC CX
+MOV AX, BX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV [AX], BX",Memory Error,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"TEST AX, AX
+RET",,0
+"MOV DX, 0
+RET",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV CX, DX
+PUSH AX",,0
+LOOP start,Infinite Loop,1
+"POP AX
+PUSH AX",,0
+"MOV AX, BX
+JMP label1",,0
+"MOV AX, BX
+RET",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, [BX]
+CMP AX, BX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, BX
+POP AX",,0
+"MOV CX, DX
+MOV DX, 0",,0
+"POP AX
+JZ label2",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"INC CX
+CMP AX, BX",,0
+"XOR AX, AX
+TEST AX, AX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV CX, DX
+MOV AX, BX",,0
+"POP AX
+INC CX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"TEST AX, AX
+SUB BX, AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"XOR AX, AX
+RET",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV AX, BX
+JMP label1",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"INC CX
+SUB BX, AX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"POP AX
+PUSH AX",,0
+"ADD AX, CX
+MOV [BX], AX",,0
+"JZ label2
+MOV AX, BX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+LOOP start,Infinite Loop,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV [AX], BX",Memory Error,1
+"SUB BX, AX
+MOV AX, [BX]",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, BX
+ADD AX, CX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"TEST AX, AX
+MOV DX, 0",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"XOR AX, AX
+RET",,0
+"CMP AX, BX
+RET",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH AX
+CALL func",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"TEST AX, AX
+MOV DX, 0",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"CALL func
+JMP label1",,0
+"PUSH AX
+ADD AX, CX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"SUB BX, AX
+MOV AX, BX",,0
+"MOV [AX], BX",Memory Error,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"XOR AX, AX
+MOV DX, 0",,0
+"RET
+MOV CX, DX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV [BX], AX
+MOV AX, BX",,0
+"MOV [AX], BX",Memory Error,1
+"INC CX
+ADD AX, CX",,0
+"RET
+MOV AX, [BX]",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, BX
+PUSH AX",,0
+"XOR AX, AX
+JZ label2",,0
+"MOV [BX], AX
+POP AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV DX, 0
+INC CX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CMP AX, BX
+TEST AX, AX",,0
+"MOV AX, [BX]
+JMP label1",,0
+"SUB BX, AX
+MOV DX, 0",,0
+"MOV AX, [BX]
+SUB BX, AX",,0
+"TEST AX, AX
+CALL func",,0
+"POP AX
+DEC DX",,0
+"ADD AX, CX
+MOV AX, [BX]",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV [AX], BX",Memory Error,1
+"INC CX
+SUB BX, AX",,0
+"PUSH AX
+RET",,0
+"PUSH AX
+CALL func",,0
+"ADD AX, CX
+MOV AX, BX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+LOOP start,Infinite Loop,1
+"CALL func
+JZ label2",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV DX, 0
+MOV CX, DX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+LOOP start,Infinite Loop,1
+"DEC DX
+CMP AX, BX",,0
+LOOP start,Infinite Loop,1
+"PUSH AX
+MOV AX, [BX]",,0
+"POP AX
+MOV DX, 0",,0
+"MOV [AX], BX",Memory Error,1
+LOOP start,Infinite Loop,1
+"DEC DX
+MOV CX, DX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV DX, 0
+CALL func",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"RET
+TEST AX, AX",,0
+"JMP label1
+JZ label2",,0
+"RET
+CMP AX, BX",,0
+"MOV DX, 0
+MOV [BX], AX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"RET
+MOV CX, DX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+LOOP start,Infinite Loop,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"ADD AX, CX
+MOV CX, DX",,0
+LOOP start,Infinite Loop,1
+"MOV [AX], BX",Memory Error,1
+"MOV [AX], BX",Memory Error,1
+"CMP AX, BX
+MOV AX, BX",,0
+"MOV [AX], BX",Memory Error,1
+"MOV AX, [BX]
+POP AX",,0
+"CMP AX, BX
+PUSH AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+LOOP start,Infinite Loop,1
+LOOP start,Infinite Loop,1
+"MOV [AX], BX",Memory Error,1
+"MOV [AX], BX",Memory Error,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV [AX], BX",Memory Error,1
+"CMP AX, BX
+POP AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"PUSH AX
+DEC DX",,0
+"MOV DX, 0
+MOV AX, [BX]",,0
+"MOV [BX], AX
+POP AX",,0
+"JMP label1
+XOR AX, AX",,0
+"DEC DX
+XOR AX, AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"CMP AX, BX
+SUB BX, AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"RET
+MOV AX, BX",,0
+"XOR AX, AX
+PUSH AX",,0
+"XOR AX, AX
+MOV [BX], AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV [BX], AX
+SUB BX, AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV AX, BX
+SUB BX, AX",,0
+LOOP start,Infinite Loop,1
+"INC CX
+RET",,0
+"MOV AX, BX
+POP AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"DEC DX
+MOV AX, BX",,0
+"MOV AX, [BX]
+XOR AX, AX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, BX
+JMP label1",,0
+"JZ label2
+MOV CX, DX",,0
+"JZ label2
+CMP AX, BX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"SUB BX, AX
+ADD AX, CX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"ADD AX, CX
+DEC DX",,0
+"MOV AX, [BX]
+TEST AX, AX",,0
+"MOV AX, BX
+DEC DX",,0
+"INC CX
+XOR AX, AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV CX, DX
+SUB BX, AX",,0
+"MOV AX, [BX]
+RET",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"SUB BX, AX
+MOV DX, 0",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV CX, DX
+MOV AX, BX",,0
+"MOV DX, 0
+MOV AX, [BX]",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"DEC DX
+XOR AX, AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV [AX], BX",Memory Error,1
+"INC CX
+SUB BX, AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH AX
+ADD AX, CX",,0
+"MOV DX, 0
+MOV AX, [BX]",,0
+"MOV [AX], BX",Memory Error,1
+"XOR AX, AX
+ADD AX, CX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"CMP AX, BX
+DEC DX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"PUSH AX
+ADD AX, CX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"TEST AX, AX
+MOV CX, DX",,0
+"MOV AX, BX
+CALL func",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV AX, [BX]
+SUB BX, AX",,0
+"RET
+CALL func",,0
+"MOV CX, DX
+PUSH AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"ADD AX, CX
+XOR AX, AX",,0
+"JZ label2
+MOV DX, 0",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, [BX]
+JZ label2",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"RET
+DEC DX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV [AX], BX",Memory Error,1
+"SUB BX, AX
+MOV AX, BX",,0
+"SUB BX, AX
+MOV AX, BX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"XOR AX, AX
+INC CX",,0
+"JMP label1
+INC CX",,0
+"DEC DX
+POP AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"INC CX
+DEC DX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"RET
+MOV CX, DX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+LOOP start,Infinite Loop,1
+LOOP start,Infinite Loop,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV [AX], BX",Memory Error,1
+"ADD AX, CX
+TEST AX, AX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"RET
+CALL func",,0
+"PUSH AX
+MOV AX, [BX]",,0
+"CMP AX, BX
+INC CX",,0
+"PUSH AX
+MOV [BX], AX",,0
+"RET
+MOV DX, 0",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"ADD AX, CX
+MOV AX, BX",,0
+"MOV DX, 0
+SUB BX, AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JMP label1
+POP AX",,0
+"ADD AX, CX
+DEC DX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"CALL func
+POP AX",,0
+"JZ label2
+ADD AX, CX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"JMP label1
+MOV AX, [BX]",,0
+"ADD AX, CX
+TEST AX, AX",,0
+"PUSH AX
+MOV [BX], AX",,0
+"MOV CX, DX
+MOV [BX], AX",,0
+"JZ label2
+SUB BX, AX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV CX, DX
+PUSH AX",,0
+"MOV AX, [BX]
+CALL func",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"XOR AX, AX
+MOV CX, DX",,0
+"MOV [BX], AX
+RET",,0
+"ADD AX, CX
+RET",,0
+"RET
+CALL func",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV AX, BX
+TEST AX, AX",,0
+"MOV [AX], BX",Memory Error,1
+"SUB BX, AX
+PUSH AX",,0
+"CMP AX, BX
+CALL func",,0
+"RET
+JMP label1",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV CX, DX
+MOV AX, [BX]",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"CMP AX, BX
+MOV CX, DX",,0
+"MOV CX, DX
+MOV [BX], AX",,0
+"MOV [BX], AX
+XOR AX, AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"INC CX
+MOV [BX], AX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV [AX], BX",Memory Error,1
+"MOV AX, [BX]
+XOR AX, AX",,0
+"RET
+SUB BX, AX",,0
+LOOP start,Infinite Loop,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"SUB BX, AX
+CMP AX, BX",,0
+"MOV AX, BX
+INC CX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+LOOP start,Infinite Loop,1
+"MOV AX, BX
+MOV CX, DX",,0
+"MOV AX, BX
+MOV AX, [BX]",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"DEC DX
+POP AX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV [AX], BX",Memory Error,1
+"RET
+MOV AX, BX",,0
+"MOV [AX], BX",Memory Error,1
+"TEST AX, AX
+JZ label2",,0
+"MOV CX, DX
+PUSH AX",,0
+"TEST AX, AX
+SUB BX, AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV [AX], BX",Memory Error,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV CX, DX
+MOV [BX], AX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"CMP AX, BX
+POP AX",,0
+"POP AX
+PUSH AX",,0
+"POP AX
+TEST AX, AX",,0
+"POP AX
+XOR AX, AX",,0
+"MOV [AX], BX",Memory Error,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV DX, 0
+TEST AX, AX",,0
+"JMP label1
+SUB BX, AX",,0
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV DX, 0
+MOV [BX], AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"POP AX
+PUSH AX",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV CX, DX
+INC CX",,0
+"DEC DX
+MOV DX, 0",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"ADD AX, CX
+MOV AX, [BX]",,0
+"XOR AX, AX
+CMP AX, BX",,0
+"PUSH AX
+POP BX",Stack Misalignment,1
+"RET
+MOV AX, [BX]",,0
+"DEC DX
+POP AX",,0
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JMP label1
+JZ label2",,0
+"MOV [BX], AX
+CALL func",,0
+"POP AX
+MOV [BX], AX",,0
+"MOV AX, BX
+ADD AX, CX",,0
+"PUSH AX
+DEC DX",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"PUSH AX
+POP BX",Stack Misalignment,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"ADD AX, CX
+POP AX",,0
+"MOV DX, 0
+RET",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV [AX], BX",Memory Error,1
+"MOV [AX], BX",Memory Error,1
+"MOV CX, DX
+SUB BX, AX",,0
+"RET
+POP AX",,0
+"MOV AX, BX
+DEC DX",,0
+"MOV DX, 0
+PUSH AX",,0
+"XOR AX, AX
+ADD AX, CX",,0
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"MOV [AX], BX",Memory Error,1
+"JMP label1
+MOV [BX], AX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV [AX], BX",Memory Error,1
+LOOP start,Infinite Loop,1
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"MOV AX, [BX]
+JZ label2",,0
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"JMP label1
+RET",,0
+"MOV [AX], BX",Memory Error,1
+"RET
+MOV DX, 0",,0
+"DEC DX
+MOV DX, 0",,0
+"MOV [AX], BX",Memory Error,1
+"CMP AX, BX
+JMP label",Incorrect Flag Usage,1
+"CALL func
+MOV AX, [BX]",,0
+"ADD AX, CX
+MOV CX, DX",,0
+"MOV [BX], AX
+ADD AX, CX",,0
+"MOV [AX], BX",Memory Error,1
+"CALL func
+MOV CX, DX",,0
+"DEC DX
+CMP AX, BX",,0
+"PUSH CX
+PUSH DX
+POP CX",Stack Misalignment,1
+"MOV [AX], BX",Memory Error,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"CALL func
+SUB BX, AX",,0
+"CMP AX, BX
+TEST AX, AX",,0
+"JMP start
+start: JMP start",Infinite Loop,1
+"MOV AX, [BX+4]
+MOV BX, [AX]",Memory Error,1
+"MOV AX, CX
+MOV DX, AX
+POP AX",Uninitialized Register,1
+"MOV AX, BX
+JZ label2",,0
+"POP AX
+PUSH AX",,0
+LOOP start,Infinite Loop,1
+"JMP start
+start: JMP start",Infinite Loop,1
+"INC CX
+MOV AX, [BX]",,0
+"TEST AX, AX
+POP AX",,0
+"MOV AX, BX
+MOV DX, 0",,0
+"MOV AX, BX
+JZ label2",,0
+"PUSH AX
+MOV AX, [BX]",,0
+"CMP AX, CX
+JNZ label",Incorrect Flag Usage,1
+"MOV CX, DX
+ADD AX, CX",Uninitialized Register,1
+"TEST AX, AX
+INC CX",,0
+"CMP AX, BX
+JMP label1",,0
+"MOV [AX], BX",Memory Error,1
+"MOV [AX], BX",Memory Error,1
